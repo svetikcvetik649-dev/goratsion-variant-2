@@ -57,19 +57,19 @@
   var DISHES = {
     borsch: { name: 'Борщ', video: 'assets/video/borsch.mp4', poster: 'assets/img/borsch-poster.jpg',
       desc: 'Картофельные хлопья, лук, морковь, свёкла, капуста, сушёный томат, паприка и зелень. Для насыщенного вкуса добавьте тушёнку.',
-      big: '160 г', small: '80 г', nutri: 'На 160 г: 506 ккал, белки 17 г, жиры 11,5 г, углеводы 82,5 г.',
+      big: '160 г', bigP: '402 ₽', small: '80 г', smallP: '283 ₽', nutri: 'На 160 г: 506 ккал, белки 17 г, жиры 11,5 г, углеводы 82,5 г.',
       steps: ['Высыпать пакет в холодную воду: пакет на 1 л готового блюда в 0,8-1 л, на 2 л в 1,8-2 л.', 'Дать постоять 5 минут, чтобы овощи напитались.', 'Довести до кипения на среднем огне и варить 4-6 минут, посолить по вкусу. Тушёнку можно добавить перед закипанием.'] },
     harcho: { name: 'Харчо', video: 'assets/video/harcho.mp4', poster: 'assets/img/harcho-poster.jpg',
       desc: 'Густой пряный суп, который хорошо согревает после долгого дня на холоде. Готовится так же, как борщ.',
-      big: '180 г', small: '100 г', nutri: '',
+      big: '180 г', bigP: '', small: '100 г', smallP: '286 ₽', nutri: '',
       steps: ['Высыпать пакет в холодную воду: пакет на 1 л готового блюда в 0,8-1 л, на 2 л в 1,8-2 л.', 'Дать постоять 5 минут.', 'Довести до кипения и варить 4-6 минут. Вместо воды можно взять готовый бульон.'] },
     goroh: { name: 'Гороховый крем-суп', video: 'assets/video/goroh.mp4', poster: 'assets/img/goroh-poster.jpg',
       desc: 'Нежный гороховый суп-пюре. По желанию в процессе варки добавьте копчёности.',
-      big: '240 г', small: '120 г', nutri: '',
+      big: '240 г', bigP: '370 ₽', small: '120 г', smallP: '236 ₽', nutri: '',
       steps: ['Высыпать пакет в холодную воду (большой в 1,4 л, маленький в 0,7-0,8 л) и тщательно перемешать.', 'Оставить на 5 минут.', 'Довести до кипения и варить 3-5 минут, постоянно помешивая, чтобы не подгорело.'] },
     ragu: { name: 'Гороховое рагу с овощами', video: 'assets/video/ragu.mp4', poster: 'assets/img/ragu-poster.jpg',
       desc: 'Густое сытное блюдо, которое хорошо идёт с консервированной тушёнкой.',
-      big: '320 г', small: '160 г', nutri: '',
+      big: '320 г', bigP: '402 ₽', small: '160 г', smallP: '158 ₽', nutri: '',
       steps: ['Часть пакета с овощами засыпать в холодную воду (большой в 1,8 л, малый в 0,9 л), подождать 5 минут.', 'Варить на среднем огне 4-6 минут.', 'Постоянно помешивая, внести вторую часть пакета и мешать до однородной массы. Соль, специи и тушёнку добавить по вкусу.'] }
   };
   var video = $('#dishVideo'), phone = $('.phone'), info = $('.dish-info');
@@ -79,6 +79,7 @@
     tabs.forEach(function (b) { b.setAttribute('aria-selected', String(b.dataset.k === k)); });
     $('#dishName').textContent = d.name; $('#dishDesc').textContent = d.desc;
     $('#sizeBigW').textContent = d.big; $('#sizeSmallW').textContent = d.small;
+    $('#sizeBigP').textContent = d.bigP || 'цена на Озоне'; $('#sizeSmallP').textContent = d.smallP || 'цена на Озоне';
     var n = $('#dishNutri'); n.textContent = d.nutri; n.style.display = d.nutri ? '' : 'none';
     $('#dishSteps').innerHTML = d.steps.map(function (s) { return '<li><span>' + s + '</span></li>'; }).join('');
     video.poster = d.poster; video.src = d.video; video.load(); playIfVisible();
