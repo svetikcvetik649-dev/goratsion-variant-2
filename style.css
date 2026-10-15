@@ -192,3 +192,13 @@ h3{font-family:var(--f-head);font-weight:600;line-height:1.05}
   *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
   .hl,.hero-lead,.hero-cta,.hero-facts{opacity:1;transform:none}
 }
+
+/* блик: яркая белая полоса пробегает по плашкам */
+.btn,.msg,.sticky-buy,.dish-tabs button[aria-selected="true"],.size{position:relative;overflow:hidden;isolation:isolate}
+.btn::after,.msg::after,.sticky-buy::after,.dish-tabs button[aria-selected="true"]::after,.size::after{content:"";position:absolute;top:-20%;bottom:-20%;left:0;width:45%;background:linear-gradient(100deg,transparent 0%,rgba(255,255,255,.15) 30%,rgba(255,255,255,.85) 50%,rgba(255,255,255,.15) 70%,transparent 100%);transform:translateX(-130%) skewX(-18deg);animation:shine 3.8s ease-in-out infinite;pointer-events:none;z-index:1}
+.msg-max::after{animation-delay:.5s}.msg-wa::after{animation-delay:1s}
+.btn-lg::after{animation-delay:.3s}.sticky-buy::after{animation-delay:1.2s}
+.size:nth-child(2)::after{animation-delay:.6s}
+.size::after{background:linear-gradient(100deg,transparent 0%,rgba(255,255,255,.1) 30%,rgba(255,255,255,.5) 50%,rgba(255,255,255,.1) 70%,transparent 100%)}
+@keyframes shine{0%{transform:translateX(-130%) skewX(-18deg)}38%,100%{transform:translateX(330%) skewX(-18deg)}}
+@media (prefers-reduced-motion:reduce){.btn::after,.msg::after,.sticky-buy::after,.size::after,.dish-tabs button::after{display:none}}
